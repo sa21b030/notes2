@@ -1,0 +1,24 @@
+ul {
+    list-style-type: none;
+    border: 1px groove black;
+    width: 33%;
+    margin : auto;
+    padding: 10px;
+}
+
+#center {
+    text-align: center;
+    width: 100%;
+}
+
+article {
+    width: 30%;
+    border: 1px groove black;
+    display: inline-block;
+    margin: 5px;
+    padding: 3px 3px 3px 7px;
+}
+
+#notes {
+    margin-top: 10px;
+}
