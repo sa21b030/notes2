@@ -31,6 +31,7 @@ function createDeleteButton() {
 function deleteArticle(button) {
     let thisArticle=button.parentNode;
     thisArticle.parentNode.removeChild(thisArticle);
+    localStorage.setItem("notes", document.getElementById("notes").innerHTML);  
 }
 
 window.onload=init;
