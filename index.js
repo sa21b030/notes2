@@ -1,46 +1,10 @@
-const { createApp } = Vue;
-createApp({
-     data() {
-         return {
-            notes: [],
-            title: null,
-            text: null,
-         };
-     },
-     created() {
-        this.notes = JSON.parse(localStorage.getItem("notes")) || [];
-    },
-     methods: {
-        add() {
-            if (this.text || this.title) {
-                this.notes.push(createNote(this.title, this.text, document.getElementById("color").value));
-                this.title = "";
-                this.text = "";
-                this.$refs.title.focus();
-            }
-        },
-        del(id) {
-            const position = this.notes.findIndex((note) => note.id === id);
-            this.notes.splice(position, 1);
-        }
-     },
-    watch: {
-        notes: {
-            handler(val) {
-                localStorage.setItem("notes", JSON.stringify(val));
-            },
-            deep: true
-        }    
-    }
-}).mount("#app");
+const http = require('http');
+const {router} = require('./routes.js');
 
-function createNote(title, text, color) {
-    const id = generateId(title, text);
-    return { id, title, text, color };
-}
-    
-function generateId(title, text, length = 10) {
-    return CryptoJS.SHA256(title + text + new Date())
-    .toString()
-    .substring(0, length);
-}    
+const server = http.createServer(router);
+
+const port = 8080;
+const host = '127.0.0.1';
+server.listen(port, host, () => {
+    console.log(`Server running at http://${host}:${port}/`);
+});

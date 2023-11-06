@@ -5,21 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>notes</title>
+    <!--
     <link rel="icon" href="/assets/favicon/favicon.ico" type="image/x-icon" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <!--
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGW...TrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    -->
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <main id="app">
-        <div id="form">
+        <form id="form" action="/index/action" method="post">
             <ul>
                 <li>
                     <input type="text" name="title" id="title" ref="title" v-model="title" autofocus spellcheck="false" placeholder="Enter title ...">
@@ -33,27 +33,14 @@
                 </li>
                 <li>
                     <div id="center">
-                        <button @click="add">OK</button>
+                        <button type="submit" name="submit" value="create">OK</button>
                     </div>    
                 </li>
             </ul>                        
-        </div>
-        <div id="notes">
-            <ul ref="list">
-                <li v-for="(note, i) in notes" v-bind:key="i" :id="note.id">
-                    <article>
-                        <div id="note" :style="`background-color: ${note.color};`">
-                            <header>{{ note.title }}</header>
-                            <p>{{ note.text }}</p>
-                            <div>
-                                <button @click="del(note.id)">Delete</button>
-                            </div>
-                        </div>
-                    </article>    
-                </li>
-            </ul>
-        </div>
+            <div id="notes">
+                XXXXREPLACEXXXX
+            </div>
+        </form>
     </main>
-    <script src="index.js"></script> 
 </body>
 </html>
